@@ -79,7 +79,7 @@ services:
       paperless:
 
   tika:
-    image: ghcr.io/paperless-ngx/tika:latest
+    image: apache/tika:latest
     restart: unless-stopped
     networks:
       paperless:
@@ -117,7 +117,6 @@ services:
       - 'traefik.http.routers.paperless.entryPoints=websecure'
       - 'traefik.http.services.paperless.loadbalancer.server.port=8000'
       - 'traefik.http.routers.paperless.service=paperless'
-      - 'traefik.docker.network=cloud'
 
   proxy:
     image: traefik
